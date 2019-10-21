@@ -1,0 +1,24 @@
+.Post--isBlacklisted {
+  .Post-header,
+  .Post-body,
+  .EventPost-icon,
+  .EventPost-info {
+    display: none;
+  }
+}
+.Discussion--isBlacklisted {
+  display: none;
+}
+.Post--isBlacklisted.Post--canBlacklist,  .Discussion--isBlacklisted.Discussion--canBlacklisted {
+  .Post-header,
+  .Post-body,
+  .EventPost-icon,
+  .EventPost-info,
+  .DiscussionListItem-content {
+
+    opacity: 0.5;
+  }
+  display: block;
+  background: @primary-color;
+  .light-contents(@color: @body-bg; @control-color: @body-bg);
+}

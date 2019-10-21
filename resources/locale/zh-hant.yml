@@ -1,0 +1,12 @@
+xmugenx-post-blacklist:
+  admin:
+    settings:
+      title: 黑名單設定
+      labelText: 含有黑名單字詞的貼文將隱藏
+      help: 使用空白鍵分詞.
+    permissions:
+      blacklist_discussions_label: 黑名單
+  forum:
+    post_controls:
+      unblacklist_button: 解除黑名單
+      blacklist_button: 黑名單

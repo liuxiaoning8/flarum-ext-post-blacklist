@@ -1,0 +1,34 @@
+{
+  "name": "xmugenx/flarum-ext-post-blacklist",
+  "description": "Posts with blacklisted words will be hidden.",
+  "type": "flarum-extension",
+  "keywords": ["flarum", "post", "blacklist"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "xmugenx"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/xmugenx/flarum-ext-post-blacklist/issues",
+    "source": "https://github.com/xmugenx/flarum-ext-post-blacklist"
+  },
+  "require": {
+    "flarum/core": "^0.1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "XmugenX\\PostBlackList\\": "src/"
+    }
+  },
+  "extra": {
+    "flarum-extension": {
+      "title": "Post Blacklist",
+      "icon": {
+        "name": "far fa-envelope",
+        "backgroundColor": "#83AF9B",
+        "color": "#fff"
+      }
+    }
+  }
+}
