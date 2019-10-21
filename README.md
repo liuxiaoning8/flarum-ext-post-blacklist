@@ -4,7 +4,7 @@ Flarum extension that add post blacklist to your Flarum forum.
 
 ### Usage
 
-- Input strings seperated by a space
+- Input strings separated by a space
 
 ## Installation
 

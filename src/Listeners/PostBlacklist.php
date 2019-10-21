@@ -3,7 +3,6 @@
 namespace XmugenX\PostBlackList\Listeners;
 
 use Flarum\Post\Event\Saving as PostSaving;
-use Flarum\Discussion\Event\Saving as DiscussionSaving;
 use Flarum\Settings\SettingsRepositoryInterface;
 use Flarum\User\AssertPermissionTrait;
 use Illuminate\Contracts\Events\Dispatcher;
@@ -33,26 +32,15 @@ class PostBlacklist
      */
     public function subscribe(Dispatcher $events)
     {
-        //$events->listen(DiscussionSaving::class, [$this, 'whenDiscussionSaving']);
         $events->listen(PostSaving::class, [$this, 'whenPostSaving']);
         $events->listen(PostWasBlacklisted::class, [$this, 'blacklistDiscussion']);
         $events->listen(PostWasUnBlacklisted::class, [$this, 'unBlacklistDiscussion']);
     }
 
-    /**
-     * @param DiscussionSaving $event
-     */
-    public function whenDiscussionSaving(DiscussionSaving $event)
-    {
-        $black_list = 'gimy 58b 8maple';
-        $words = explode(' ',$black_list);
-        $title = $event->data['attributes']['title'];
-
-        $this->check($event->discussion, $title, $words);
-    }
 
     /**
      * @param PostSaving $event
+     * @throws \Flarum\User\Exception\PermissionDeniedException
      */
     public function whenPostSaving(PostSaving $event)
     {
@@ -125,7 +113,7 @@ class PostBlacklist
     }
 
     /**
-     * @param PostWasBlacklisted $event
+     * @param PostWasUnBlacklisted $event
      */
     public function unBlacklistDiscussion(PostWasUnBlacklisted $event)
     {
