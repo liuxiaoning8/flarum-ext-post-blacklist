@@ -1,24 +1,27 @@
 .Post--isBlacklisted {
-  .Post-header,
-  .Post-body,
-  .EventPost-icon,
-  .EventPost-info {
-    display: none;
-  }
+  display: none;
 }
 .Discussion--isBlacklisted {
   display: none;
 }
-.Post--isBlacklisted.Post--canBlacklist,  .Discussion--isBlacklisted.Discussion--canBlacklisted {
+.Post--isBlacklisted.Post--canBlacklist {
   .Post-header,
   .Post-body,
   .EventPost-icon,
-  .EventPost-info,
-  .DiscussionListItem-content {
-
+  .EventPost-info {
     opacity: 0.5;
   }
   display: block;
   background: @primary-color;
   .light-contents(@color: @body-bg; @control-color: @body-bg);
+}
+.Discussion--isBlacklisted.Discussion--canBlacklisted {
+  .DiscussionListItem-title,
+  .DiscussionListItem-info,
+  .DiscussionListItem-count {
+    color:#fff!important;
+    opacity: 0.5;
+  }
+  display: block;
+  background: @primary-color;
 }
