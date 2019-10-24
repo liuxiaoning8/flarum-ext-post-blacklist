@@ -67,13 +67,14 @@ class PostBlacklist
             $words = explode(' ',$black_list);
             $post = $event->post;
 
-            $title = $event->data['attributes']['title'];
+            $title = $event->data['attributes']['title'] ?? null;
             $content = $event->data['attributes']['content'];
 
-            if ($title && $this->check($post->discussion, $title, $words)) {
+            if (!is_null($title) && $this->check($post->discussion, $title, $words)) {
                 $post->discussion->save();
                 $post->is_blacklisted = true;
             }
+            
             if ($this->check($post, $content, $words)) {
                 $post->raise(new PostWasBlacklisted($post, $event->actor));
             }
