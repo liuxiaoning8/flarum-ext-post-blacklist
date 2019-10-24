@@ -13,8 +13,8 @@ export default class PostBlacklistSettingsModal extends SettingsModal {
     return [
       <div className="Form-group">
         <label>{app.translator.trans('xmugenx-post-blacklist.admin.settings.labelText')}</label>
-        <textarea rows="4" className="FormControl" bidi={this.setting('xmugenx-post-blacklist.words')} />
-        <div class="ExtensionListItem-description">{app.translator.trans('xmugenx-post-blacklist.admin.settings.help')}</div>
+        <textarea className="FormControl" bidi={this.setting('xmugenx-post-blacklist.words')} />
+        <div className="ExtensionListItem-description">{app.translator.trans('xmugenx-post-blacklist.admin.settings.help')}</div>
       </div>
     ];
   }

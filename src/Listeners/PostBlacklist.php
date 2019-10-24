@@ -37,7 +37,6 @@ class PostBlacklist
         $events->listen(PostWasUnBlacklisted::class, [$this, 'unBlacklistDiscussion']);
     }
 
-
     /**
      * @param PostSaving $event
      * @throws \Flarum\User\Exception\PermissionDeniedException
@@ -64,7 +63,7 @@ class PostBlacklist
             );
 
         } else {
-            $black_list = $this->settings->get('post-blacklist.words');
+            $black_list = $this->settings->get('xmugenx-post-blacklist.words');
             $words = explode(' ',$black_list);
             $post = $event->post;
 
